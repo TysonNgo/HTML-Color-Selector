@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Template</title>
+  <link rel="stylesheet" type="text/css" href="../index.css">
+  <style type="text/css">
+    .container{
+      width: 100vw;
+      height: 100vh;
+      max-width: 100vw;
+    }
+    .float{
+      float: left;
+      word-wrap: break-word;
+    }
+    .a{
+      width: 33vw;
+      height: 100vh;
+    }
+    .b{
+      width: 66vw;
+      height: 100vh;
+    }
+    p{
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="float a">
+      <div id="color-selector" style="margin:auto; width:50%;height:50%;">
+        <div id="color-selector-palette">
+          <div id="color-selector-palette-cursor"></div>
+          <div class="color-selector-lightness"></div>
+        </div>
+        <div id="color-selector-hue">
+          <div id="color-selector-hue-cursor"></div>
+        </div>
+      </div>
+    </div>
+    <div class="float b">
+      <p id="text" style="width: 50%; font-size: 2em;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="../index.js"></script>
+  <script type="text/javascript">
+    let CS = ColorSelector();
+    CS.onchange = () => {
+      let hsl = CS.getHSL();
+      document.getElementById('text').style.color = `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+    }
+  </script>
+</body>
+</html>
