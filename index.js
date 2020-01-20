@@ -25,10 +25,11 @@ function ColorSelector(){
     let v = hsv.v;
     let l = (2 - s / 100) * v / 2;
 
+    s = s * v / (l < 50 ? l * 2 : 200 - l * 2);
     if (isNaN(s)) s = 0;
     return {
       h: h,
-      s: s * v / (l < 50 ? l * 2 : 200 - l * 2),
+      s: s,
       l: l
     };
   };
