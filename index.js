@@ -17,7 +17,7 @@ function ColorSelector(){
 
   function valueRange(min, max, value){
     return Math.min(max, Math.max(min, value));
-  }
+  };
 
   function getHSL(){
     let h = hsv.h;
@@ -30,17 +30,17 @@ function ColorSelector(){
       h: h,
       s: s * v / (l < 50 ? l * 2 : 200 - l * 2),
       l: l
-    }
-  }
+    };
+  };
 
   function setPaletteCursorColor(){
     let hsl = getHSL();
     colorSelectorPaletteCursor.style.setProperty('background', `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`);
-  }
+  };
 
   function setHueCursorColor(){
     colorSelector.style.setProperty('--hue', hsv.h);
-  }
+  };
 
   function mousePositionPercentWithinElement(mouseEvent, element){
     /**
@@ -56,15 +56,15 @@ function ColorSelector(){
     return {
       x: (mX-eX)/eWidth * 100,
       y: (mY-eY)/eHeight * 100
-    }
-  }
+    };
+  };
 
   function updateColorSelector(){
     colorSelector.style.setProperty('--saturation', hsv.s+'%');
     colorSelector.style.setProperty('--value', hsv.v+'%');
     setHueCursorColor();
     setPaletteCursorColor();
-  }
+  };
 
   function setHSV(e){
     /**
@@ -98,7 +98,7 @@ function ColorSelector(){
         hsv.onchange();
       }
     }
-  }
+  };
 
   window.addEventListener('mousemove', setHSV);
 
@@ -116,4 +116,4 @@ function ColorSelector(){
 
   updateColorSelector();
   return hsv;
-}
+};
